@@ -12,7 +12,7 @@ Paths::Paths()
   m_plugins = m_exeRoot / "plugins";
   m_cetmods = m_plugins / "cyber_engine_tweaks" / "mods";
   m_cetconfig = m_plugins / "cyber_engine_tweaks" / "config.json";
-  m_modRoot = m_cetmods / "skip_main_menu";
+  m_modRoot = m_cetmods / "cp_skip_main_menu";
   m_config = m_modRoot / "config.json";
   m_patchArchive = m_modRoot / "archive" / "patch.archive";
 }
