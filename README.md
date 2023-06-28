@@ -21,7 +21,7 @@ Preview (Auto Load Last Save is off):
 ## Settings
 The three newly added settings can be found under `Settings->Gameplay->Miscellaneous`.
 
-![settings](./img/screenshot.png)
+![settings](./img/settings.png)
 
 1. **Auto Load Last Save**<br>
 Enable this option will automatically load into your last save game when you launch the game.
