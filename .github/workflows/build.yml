@@ -1,14 +1,14 @@
 name: Build
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - 'scripts/**'
       - 'src/**'
       - '**.lua'
       - '.github/workflows/build.yml'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
