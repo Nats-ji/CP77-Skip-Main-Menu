@@ -1,0 +1,32 @@
+# CP77跳过主菜单
+
+## 简介
+
+> 你在测试你的模组吗？
+> 你觉得等待游戏启动是浪费你的时间吗？
+> 你厌倦了每次重新启动游戏时都要点击“加载游戏”吗？
+
+如果是这样，请考虑安装这个插件。它会为您解决所有这些问题。
+
+它通过添加多项设置来实现，允许您跳过主菜单或直接加载您的存档。
+
+预览（关闭了自动加载最后存档选项）：
+![skip_intro](https://mod.3dmgame.com/static/upload/mod/202306/MOD649b93580cbd6.gif)
+
+## 设置
+三个新添加的选项可以在“设置->游戏性->其他”下找到。
+
+![settings](https://mod.3dmgame.com/static/upload/mod/202306/MOD649b9357ed2ef.png)
+
+1. **Auto Load Last Save 自动加载最后存档**
+启用此选项会在启动游戏时自动加载您最后的存档。
+
+2. **Skip Intro Videos 跳过启动视频**
+启用此选项会在启动游戏时跳过所有的标志视频和介绍视频。
+
+3. **Skip Breaching Screen 跳过按空格继续屏幕**
+启用此选项会跳过询问您是否按空格键继续。
+
+## 鸣谢
+- **Skip Breaching Screen**使用了Cyber Engine Tweaks中内置的补丁选项。
+- 感谢keanuWheeze的[Native Settings](https://github.com/justarandomguyintheinternet/CP77_nativeSettings)，我才能够创建设置小部件，而只需进行很少的研究。

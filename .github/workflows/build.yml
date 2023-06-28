@@ -1,0 +1,39 @@
+name: Build
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'scripts/**'
+      - 'src/**'
+      - '**.lua'
+      - '.github/workflows/build.yml'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Setup xmake
+        uses: xmake-io/github-action-setup-xmake@v1
+
+      - name: Update xmake repository and install dependencies
+        run: |
+          xmake.exe repo --update
+          xmake.exe q --yes
+
+      - name: Build and Package
+        run: |
+          xmake.exe build
+          xmake.exe package
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: build/package/

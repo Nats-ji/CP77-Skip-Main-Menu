@@ -1,0 +1,12 @@
+{
+    "3DM_MOD_ID": 174751,
+    "3DM_MOD_TITLE": "跳过主菜单",
+    "3DM_MOD_TAGS": "Cyber Engine Tweaks,赛博朋克2077,Cyberpunk 2077,控制台",
+    "3DM_MOD_DESC": "一个允许MOD开发者和玩家跳过冗长的Cyberpunk2077启动时间的插件，可以直接加载到主菜单或已保存的游戏，节省MOD测试的时间。",
+    "3DM_MOD_CONTENT": "README_zh.md",
+    "UNEX_GAME": "cyberpunk2077",
+    "UNEX_MODID": 2437,
+    "UNEX_FILENAME": "Skip Main Menu",
+    "MOD_FILE_NAME": "cp_skip_main_menu"
+  }
+  
