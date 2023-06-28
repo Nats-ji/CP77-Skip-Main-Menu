@@ -33,5 +33,5 @@ Enable this option will skip all the logo videos and intro videos when launching
 Enable this option will skip the "Breaching" screen where it askes you to press the spacebar to continue.
 
 ## Credits
-- **Skip Breaching Screen** uses the build-in patch option from Cyber Engine Tweaks.
-- Thanks to keanuWheeze's [Native Settings](https://github.com/justarandomguyintheinternet/CP77_nativeSettings), I was able create the setting widgets without doing much if any research.
+- **Skip Breaching Screen** uses the built-in patch option from Cyber Engine Tweaks.
+- Thanks to keanuWheeze's [Native Settings](https://github.com/justarandomguyintheinternet/CP77_nativeSettings), I was able to create the setting widgets without doing much if any research.
