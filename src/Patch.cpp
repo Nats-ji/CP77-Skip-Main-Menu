@@ -10,7 +10,6 @@ Patch::Patch(Paths &aPaths, Config &aConfig)
 void Patch::Shutdown()
 {
     SkipIntroVideo(false);
-    SkipBreachScreen(false);
 }
 
 void Patch::SkipIntroVideo(bool aEnable)
@@ -19,44 +18,6 @@ void Patch::SkipIntroVideo(bool aEnable)
         copyArchive();
     if (!aEnable)
         removeArchive();
-}
-
-void Patch::SkipBreachScreen(bool aEnable)
-{
-    if (aEnable)
-        Log::Info("Applying the breach screen patch...");
-    else
-        Log::Info("Removing the breach screen patch...");
-
-    const auto& path = m_paths.CETConfig();
-    if (!std::filesystem::exists(path))
-    {
-        Log::Warn("Breach screen patch cannot be applyed, since the CET config doesn't exist.");
-        return;
-    }
-
-    std::fstream cetConfigFile(path);
-    if (!cetConfigFile)
-    {
-        Log::Warn("Breach screen patch cannot be applyed, failed to open the CET config.");
-        return;
-    }
-
-    auto cetConfig = nlohmann::json::parse(cetConfigFile);
-
-    auto &patchesConfig = cetConfig["patches"];
-
-    if (patchesConfig.empty())
-    {
-        Log::Warn("Can't find the patches section in the CET config.");
-        return;
-    }
-    
-    patchesConfig["skip_start_menu"] = aEnable;
-
-    cetConfigFile.clear();
-    cetConfigFile.seekp(0, std::ios::beg);
-    cetConfigFile << cetConfig.dump(4) << std::endl;
 }
 
 bool Patch::isFileSystemNTFS()

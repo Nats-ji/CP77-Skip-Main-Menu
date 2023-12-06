@@ -1,6 +1,5 @@
 local options = {
     ["Skip Intro Videos"] = true,
-    ["Skip Breaching Screen"] = true,
     ["Auto Load Last Save"] = true,
 }
 
@@ -9,12 +8,6 @@ local widgets = {
         name = "SkipIntroVideos",
         label = "Skip Intro Videos",
         description = "Enable this option will skip all the logo videos and intro videos when launching the game.",
-    },
-    ["Skip Breaching Screen"] = {
-        name = "SkipBreaching",
-        label = "Skip Breaching Screen",
-        description =
-        "Enable this option will skip the \"Breaching\" screen where it askes you to press the spacebar to continue.",
     },
     ["Auto Load Last Save"] = {
         name = "AutoLoadLastSave",
@@ -38,7 +31,6 @@ local function saveOptions()
     local config = {}
 
     config["skip_intro"] = options["Skip Intro Videos"]
-    config["skip_breach"] = options["Skip Breaching Screen"]
     config["auto_load"] = options["Auto Load Last Save"]
 
     local file = io.open("config.json", "w")
@@ -55,7 +47,6 @@ local function loadOptions()
         file:close()
 
         options["Skip Intro Videos"] = setOption(config.skip_intro, options["Skip Intro Videos"])
-        options["Skip Breaching Screen"] = setOption(config.skip_breach, options["Skip Breaching Screen"])
         options["Auto Load Last Save"] = setOption(config.auto_load, options["Auto Load Last Save"])
     end
 

@@ -38,7 +38,6 @@ void App::initialize()
     m_config.Initialize();
 
     m_patch.SkipIntroVideo(m_config.SkipIntroVideos());
-    m_patch.SkipBreachScreen(m_config.SkipBreachScreen());
 }
 
 void App::shutdown()

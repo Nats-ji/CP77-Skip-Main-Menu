@@ -5,7 +5,6 @@ class Patch
 public:
     Patch(Paths &aPaths, Config &aConfig);
     void SkipIntroVideo(bool aEnable);
-    void SkipBreachScreen(bool aEnable);
     void Shutdown();
 
 private:
