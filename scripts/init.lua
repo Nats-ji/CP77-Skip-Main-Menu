@@ -7,4 +7,3 @@ local function onInitialize()
 end
 
 registerForEvent("onInit", onInitialize)
-registerForEvent("onUpdate", autoload.OnUpdate)

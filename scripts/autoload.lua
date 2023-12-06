@@ -1,21 +1,23 @@
 local options = require("settings").Options
-local loop = false
+local autoLoaded = false
+
+-- reference https://github.com/psiberx/cp2077-playground/blob/main/DevTools/AutoContinue.reds
+---@param aSingleplayerMenuGameController SingleplayerMenuGameController
+local function autoLoad(aSingleplayerMenuGameController)
+    if aSingleplayerMenuGameController.savesCount > 0 and options["Auto Load Last Save"] == true and autoLoaded == false then
+        aSingleplayerMenuGameController:GetSystemRequestsHandler():LoadLastCheckpoint(false)
+    end
+end
+
+local function setFlag()
+    if options["Auto Load Last Save"] == true then
+        autoLoaded = true
+    end
+end
 
 local function onInitialize()
-    if options["Auto Load Last Save"] == true then
-        loop = true
-    end
+    ObserveAfter('SingleplayerMenuGameController', 'OnSavesForLoadReady', autoLoad)
+    ObserveAfter('SingleplayerMenuGameController', 'OnUninitialize', setFlag)
 end
 
--- I know it's hacky, but it works ㄟ( ▔, ▔ )ㄏ.
-local function OnUpdate()
-    if loop then
-        if Game.GetQuestsSystem():GetFactStr("q000_started") == 0 then
-            GetSingleton("inkMenuScenario"):GetSystemRequestsHandler():LoadSavedGame(0)
-        else
-            loop = false
-        end
-    end
-end
-
-return { OnInitialize = onInitialize, OnUpdate = OnUpdate }
+return { OnInitialize = onInitialize }
