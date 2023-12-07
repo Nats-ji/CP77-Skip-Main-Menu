@@ -29,9 +29,25 @@ Enable this option will automatically load into your last save game when you lau
 2. **Skip Intro Videos**<br>
 Enable this option will skip all the logo videos and intro videos when launching the game.
 
-3. **Skip Breaching Screen**<br>
-Enable this option will skip the "Breaching" screen where it askes you to press the spacebar to continue.
+## Fix: Skip Breaching Screen
+
+You may notice that the game stops at the Breaching screen, if you only turn on the skip intro videos.
+
+To fix this you have two options:
+
+1. Install Cybercmd Mod ([nexus](https://www.nexusmods.com/cyberpunk2077/mods/5176), [github](https://github.com/jac3km4/cybercmd)) (Recommended)
+
+   If **CP77 Skip Main Menu** detects the installation of Cybercmd, it will automatically add a config to skip the Breaching screen.
+   
+   There's nothing else for you to do.
+
+2. Manually add a launch option to the game
+
+   You will need to add `-skipStartScreen` to the launch options in your game.
+
+   Here's the instruction on how to do it on Steam. You'll have to google if you are using Epic or Gog.
+
+   ![launchOptions](./img/cmdline_arg.png)
 
 ## Credits
-- **Skip Breaching Screen** uses the built-in patch option from Cyber Engine Tweaks.
 - Thanks to keanuWheeze's [Native Settings](https://github.com/justarandomguyintheinternet/CP77_nativeSettings), I was able to create the setting widgets without doing much if any research.
