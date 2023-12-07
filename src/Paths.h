@@ -12,6 +12,9 @@ struct Paths
   const std::filesystem::path& Config() const;
   const std::filesystem::path& EXE() const;
   const std::filesystem::path& PatchArchive() const;
+  const std::filesystem::path& PatchConfig() const;
+  const std::filesystem::path& CyberCmd() const;
+  const std::filesystem::path& CyberCmdConfig() const;
 
   std::filesystem::path m_exe;
   std::filesystem::path m_exeRoot;
@@ -23,4 +26,7 @@ struct Paths
   std::filesystem::path m_cetconfig;
   std::filesystem::path m_config;
   std::filesystem::path m_patchArchive;
+  std::filesystem::path m_patchConfig;
+  std::filesystem::path m_cybercmd;
+  std::filesystem::path m_cybercmdConfig;
 };

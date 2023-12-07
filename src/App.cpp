@@ -38,12 +38,14 @@ void App::initialize()
     m_config.Initialize();
 
     m_patch.SkipIntroVideo(m_config.SkipIntroVideos());
+    Log::Info("Patch complete.");
 }
 
 void App::shutdown()
 {
-    m_patch.Shutdown();
     Log::Info("Shutting down...");
+    m_patch.Shutdown();
+    Log::Info("Clean up complete.");
 }
 
 App::App()

@@ -5,6 +5,7 @@ Patch::Patch(Paths &aPaths, Config &aConfig)
     : m_paths(aPaths), m_config(aConfig)
 {
     m_archivePath = m_paths.Archives() / m_archivePath;
+    m_cmdConfigPath = m_paths.CyberCmdConfig() / m_cmdConfigPath;
 }
 
 void Patch::Shutdown()
@@ -15,9 +16,16 @@ void Patch::Shutdown()
 void Patch::SkipIntroVideo(bool aEnable)
 {
     if (aEnable)
+    {
+        setCopyOptions();
         copyArchive();
+        copyCybercmdConfig();
+    }
     if (!aEnable)
+    {
         removeArchive();
+        removeCybercmdConfig();
+    }
 }
 
 bool Patch::isFileSystemNTFS()
@@ -31,37 +39,78 @@ bool Patch::isFileSystemNTFS()
     return fsn == ntfs;
 }
 
-void Patch::copyArchive()
+void Patch::setCopyOptions()
 {
-    Log::Info("Applying the skip intro patches...");
-    std::error_code ec;
-
-    auto copyOptions = std::filesystem::copy_options::none;
-
     // use create_hard_links if filesystem is NTFS
     if (isFileSystemNTFS())
     {
         Log::Info("The file system is NTFS. Symlink will be used to apply the patches.");
-        copyOptions |= std::filesystem::copy_options::create_hard_links;
+        m_copyOptions |= std::filesystem::copy_options::create_hard_links;
     }
+    else
+        m_copyOptions = std::filesystem::copy_options::none;
+}
 
-    std::filesystem::copy(m_paths.PatchArchive(), m_archivePath, copyOptions, ec);
+void Patch::copyArchive()
+{
+    Log::Info("Applying the skip intro patch...");
+    std::error_code ec;
+
+    std::filesystem::copy(m_paths.PatchArchive(), m_archivePath, m_copyOptions, ec);
     if (ec)
-        Log::Error("Failed to apply the skip intro patches: {}.", ec.message());
+        Log::Error("Failed to apply the skip intro patch: {}.", ec.message());
 }
 
 void Patch::removeArchive()
 {
-    Log::Info("Removing the skip intro patches...");
+    Log::Info("Removing the skip intro patch...");
     if (!std::filesystem::exists(m_archivePath))
     {
-        Log::Info("Skip intro patches cannot be remove since the archive does not exist.");
+        Log::Info("Skip intro patch was not removed since the archive does not exist.");
         return;
     }
     std::error_code ec;
     bool result = std::filesystem::remove(m_archivePath, ec);
     if (!result)
     {
-        Log::Error("Error removing the skip intro patches: {}", ec.message());
+        Log::Error("Error removing the skip intro patch: {}", ec.message());
+    }
+}
+
+bool Patch::hasCybercmd()
+{
+    if (std::filesystem::exists(m_paths.CyberCmd()))
+        return true;
+    else
+        return false;
+}
+
+void Patch::copyCybercmdConfig()
+{
+    if (!hasCybercmd())
+        return;
+    
+    Log::Info("Cybercmd installation detected.");
+    Log::Info("Applying the skip breaching screen patch...");
+    std::error_code ec;
+
+    std::filesystem::copy(m_paths.PatchConfig(), m_cmdConfigPath, m_copyOptions, ec);
+    if (ec)
+        Log::Error("Failed to apply the skip breaching screen patch: {}.", ec.message());
+}
+
+void Patch::removeCybercmdConfig()
+{
+    Log::Info("Removing the skip breaching screen patch...");
+    if (!std::filesystem::exists(m_cmdConfigPath))
+    {
+        Log::Info("Skip breaching screen patch was not removed since the patch does not exist.");
+        return;
+    }
+    std::error_code ec;
+    bool result = std::filesystem::remove(m_cmdConfigPath, ec);
+    if (!result)
+    {
+        Log::Error("Error removing the skip breaching screen patch: {}", ec.message());
     }
 }

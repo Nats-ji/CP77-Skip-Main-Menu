@@ -15,6 +15,9 @@ Paths::Paths()
   m_modRoot = m_cetmods / "cp_skip_main_menu";
   m_config = m_modRoot / "config.json";
   m_patchArchive = m_modRoot / "archive" / "patch.archive";
+  m_patchConfig = m_modRoot / "archive" / "patch.toml";
+  m_cybercmd = m_plugins / "cybercmd.asi";
+  m_cybercmdConfig = m_gameRoot / "r6" / "config" / "cybercmd";
 }
 
 const std::filesystem::path &Paths::GameRoot() const
@@ -60,4 +63,19 @@ const std::filesystem::path &Paths::EXE() const
 const std::filesystem::path &Paths::PatchArchive() const
 {
   return m_patchArchive;
+}
+
+const std::filesystem::path &Paths::PatchConfig() const
+{
+  return m_patchConfig;
+}
+
+const std::filesystem::path &Paths::CyberCmd() const
+{
+  return m_cybercmd;
+}
+
+const std::filesystem::path &Paths::CyberCmdConfig() const
+{
+  return m_cybercmdConfig;
 }

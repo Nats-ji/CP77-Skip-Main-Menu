@@ -9,7 +9,7 @@ Logger::Logger(Paths &aPaths)
 
 std::shared_ptr<spdlog::logger> Logger::CreateLogger()
 {
-    const auto logFileName = m_paths.ModRoot() / "skip_main_menu_asi.log";
+    const auto logFileName = m_paths.ModRoot() / "cp_skip_main_menu_asi.log";
     std::size_t max_size = 2 * 1024 * 1024;
     std::size_t max_files = 2;
     const std::string pattern = "[%Y-%m-%d %T UTC%z] [%l] %v";

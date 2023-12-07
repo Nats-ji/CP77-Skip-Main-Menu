@@ -1,0 +1,3 @@
+# This config file is created by Skip Main Menu Mod to skip the breaching screen.
+[args]
+skipStartScreen = "true"
