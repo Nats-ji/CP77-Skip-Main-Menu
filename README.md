@@ -19,7 +19,7 @@ Preview (Auto Load Last Save is off):
 ![skip_intro](./img/skip_intro.gif)
 
 ## Settings
-The three newly added settings can be found under `Settings->Gameplay->Miscellaneous`.
+The two newly added settings can be found under `Settings->Gameplay->Miscellaneous`.
 
 ![settings](./img/settings.png)
 

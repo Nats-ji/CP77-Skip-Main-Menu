@@ -14,7 +14,7 @@
 ![skip_intro](https://mod.3dmgame.com/static/upload/mod/202306/MOD649b93580cbd6.gif)
 
 ## 设置
-三个新添加的选项可以在“设置->游戏性->其他”下找到。
+两个新添加的选项可以在“设置->游戏性->其他”下找到。
 
 ![settings](https://mod.3dmgame.com/static/upload/mod/202312/MOD65712bf4b13f4.png)
 
