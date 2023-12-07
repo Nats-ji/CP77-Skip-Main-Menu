@@ -31,9 +31,9 @@ Enable this option will skip all the logo videos and intro videos when launching
 
 ## Fix: Skip Breaching Screen
 
-You may notice that the game stops at the Breaching screen, if you only turn on the skip intro videos.
+You may notice that the game stops at the Breaching screen if you only turn on the skip intro videos.
 
-To fix this you have two options:
+To fix this, you have two options:
 
 1. Install Cybercmd Mod ([nexus](https://www.nexusmods.com/cyberpunk2077/mods/5176), [github](https://github.com/jac3km4/cybercmd)) (Recommended)
 
@@ -45,7 +45,7 @@ To fix this you have two options:
 
    You will need to add `-skipStartScreen` to the launch options in your game.
 
-   Here's the instruction on how to do it on Steam. You'll have to google if you are using Epic or Gog.
+   Here are the instructions on how to do it on Steam. You'll have to google if you are using Epic or Gog.
 
    ![launchOptions](./img/cmdline_arg.png)
 
