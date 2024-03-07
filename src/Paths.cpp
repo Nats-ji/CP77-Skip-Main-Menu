@@ -9,6 +9,8 @@ Paths::Paths()
   m_exeRoot = m_exe.parent_path();
   m_gameRoot = m_exeRoot.parent_path().parent_path();
   m_archives = m_gameRoot / "archive" / "pc" / "mod";
+  std::filesystem::create_directories(m_archives);
+
   m_plugins = m_exeRoot / "plugins";
   m_cetmods = m_plugins / "cyber_engine_tweaks" / "mods";
   m_cetconfig = m_plugins / "cyber_engine_tweaks" / "config.json";
